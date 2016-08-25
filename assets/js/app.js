@@ -10,10 +10,6 @@ $('.starting').click(function(){
 
 })
 
-
-
-
-
 });
 
 
