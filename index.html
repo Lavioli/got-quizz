@@ -1,106 +1,79 @@
-<!--   
-GENERAL OUTLINE
-1. Create start submit button |X|
-2. Screen fades when start button is clicked |x|
-3. Question1 with answer choices show up (atleast 5 Q's) 
-4. Submit button on the lower right side of the question
-5. No skipping questions function at all
-6. Create a counter for question answered so far (Ex: Question 7 out of 10)
-7. Create a counter for score
-    -counter for correct answers
-    -counter for incorrect answers
-8. When submit button on the lower right is click, a right/wrong feedback shows up
-    -Correct: "You are correct!"
-    -Incorrect: show/highlight the correct answer choice
-9. After feedback, they must go to the next question
-10. At the final question, the overall score should show
-    -And a "Start a new game" button should appear that will allow them to redo Quizz
-
-
-TECHNICAL OUTLINE
-1. When submit button is click, use Object.create() method to create a new Quiz Object of scores
-3. Store quiz questions in an array, use objects to represent individual questions. Each question should contain properties for (Q text, choices, correct answer)
-7. Create a Quiz object that stores an array of question objects and internally tracks the game score
-    -Can add a method to determine correct answers for Quizz object
- -->
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset=utf-8>
-    <meta name=description content="Game of Thrones Quizz">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <title>How much do you know about Game of Thrones?</title>
+    <title>How well do you know your GoT characters?</title>
     <link rel="stylesheet" type="text/css" href="assets/style/main.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-   
 </head>
 
 <body>
-    <header> "Game of Thrones Quiz" </header>
-    <div id="starting"> 
-        <form name="game-of-thrones">
-            <button type="submit" class="start">Start</button>
-        </form>
-
+    <div class="display-container">
+    	 <main></main>
     </div>
-        <!-- after start has been clicked -->
-        <div class="question" id="q1">
-            <p class="question">Question1:</p>
-            <ul class="choice-list">
-                <li>
-                    <input type="radio" name="q1" value="a" id="q1a">
-                    <label for="q1a">Answer1</label>
-                    <br/>
-                </li>
-                <li>
-                    <input type="radio" name="q1" value="b" id="q1b">
-                    <label for="q1c">Answer2</label>
-                    <br/>
-                </li>
-                <li>
-                    <input type="radio" name="q1" value="c" id="q1c">
-                    <label for="q1c">Answer3</label>
-                    <br/>
-                </li>
-                <li>
-                    <input type="radio" name="q1" value="d" id="q1d">
-                    <label for="q1d">Answer4</label>
-                    <br/>
-                </li>
-            </ul>
-        </div>
-        <div class="question" id="q2">
-            <p class="question">Question2:</p>
-            <ul class="choice-list">
-                <li>
-                    <input type="radio" name="q2" value="a" id="q2a">
-                    <label for="q2a">Answer1</label>
-                    <br/>
-                </li>
-                <li>
-                    <input type="radio" name="q2" value="b" id="q2b">
-                    <label for="q2c">Answer2</label>
-                    <br/>
-                </li>
-                <li>
-                    <input type="radio" name="q2" value="c" id="q2c">
-                    <label for="q2c">Answer3</label>
-                    <br/>
-                </li>
-                <li>
-                    <input type="radio" name="q2" value="d" id="q2d">
-                    <label for="q2d">Answer4</label>
-                    <br/>
-                </li>
-            </ul>
-        </div>
-        <form>
-            <button class="question submit" type="submit" id="submit-answer">Submit Answer</button>
-        </form>
-   
-</body>
 
+    <!-- background opening video -->
+    <!-- <div id="background-video" style="position: fixed; display:none; z-index: -99; width: 100%; height: 100%">
+        <iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/s7L2PVdrb_8?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&disablekb=1">
+        </iframe>
+    </div> -->
+
+    <!-- background image -->
+    <div id="background-image"></div>
+
+    <!-- title of the game -->
+    <div id="title-display">
+        <h1>Game of Thrones Characters Quiz</h1>
+        <h3>How well do you know your GoT characters?</h4>
+	</div>
+
+    <!-- start button -->
+    <div id="start-button">
+        <button type="submit">Winter is coming</button>
+    </div>
+
+    <!-- Restart game button -->
+    <div id="restart-button">
+        <form action="index_submit" method="get" accept-charset="utf-8">
+            <button type="submit">Restart Quiz</button>
+        </form>
+    </div>
+
+    <!-- Current question tracker. Ex: Question: 1 out of 10-->
+    <div id="current-question"></div>
+
+    <!-- Current score.  Ex: Score: 3/10-->
+    <div id="current-score"></div>
+
+    <!-- Image display -->
+    <div id="image-display">
+    	
+    </div>
+    <!-- Question -->
+    <div id="question-display"></div>
+
+    <!-- Choices -->
+    <div id="choices-display"></div>
+
+<!-- Submit button -->
+    <div id="submit-button">
+        <form action="index_submit" method="get" accept-charset="utf-8">
+            <button type="submit">Submit Answer</button>
+        </form>
+    </div>
+
+    <!-- Next question button -->
+    <div id="next-question-button">
+        <form action="index_submit" method="get" accept-charset="utf-8">
+            <button type="submit">Next Question</button>
+        </form>
+    </div>
+
+    <!-- See final score button -->
+    <div id="final-score-button">
+        <button type="submit">See Final Results</button>
+    </div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+</body>
 </html>

@@ -1,26 +1,8 @@
-
-header {
-
-display: block;
-
-
-
+body {
+	background-image: url("../../images/background-image-1.jpg");
+	background-size: 100%;
+	background-position: fixed;
+	background-repeat: none; 
+	z-index: -98;
 }
-
-
-.question {
-
-
-display:none;
-
-
-}
-
-
-
-#starting {    
-
-
-display:none;
-
- }
+	
